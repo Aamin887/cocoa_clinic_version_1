@@ -1,0 +1,151 @@
+.admin-dash {
+    position: relative;
+    /* width: 100vw; */
+    /* height: 100vh; */
+}
+
+.admin-dash::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    background-color: rgba(0, 0, 0, 0.703);
+}
+
+.left-side {
+    min-height: 100px;
+    padding: 0 3rem;
+}
+
+.left-side .content{
+    display: flex;
+    height: 100px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.left-side .content .header {
+    flex-basis: 1;
+}
+
+.left-side .content nav a {
+    transition: all 0.3s ease;
+    margin-left: 20px;
+    background-color: #0d0c22aa;
+    padding: 10px 15px;
+    border-radius: 50px;
+    min-width: 100px;
+    display: inline-block;
+    text-align: center;
+    font-size: 14px;
+    text-transform: capitalize;
+}
+
+.left-side .content nav a:hover{
+background-color: #0d0c22;
+}
+
+.logo{
+    width: 60px;
+}
+
+img {
+    width: 100%;
+}
+
+@media screen and (max-width: 778px) {
+    .left-side .content nav{
+        border-radius: 10px;
+        background-color: #2f2f41;
+        display: flex;
+        position: absolute;
+        flex-direction: column;
+        align-items: center;
+    box-shadow: 0px 0px 8px 0px #4d4949;
+        right: 3rem;
+        justify-content: space-around;
+        top:10em;
+        padding: 2rem 1rem;
+    }
+
+    .left-side .content nav a{
+        margin-bottom: 20px;
+        margin-left: 0;
+    }
+
+}
+
+.right-side {
+    flex: 2;
+    margin-top: 20px;
+    border-radius: 10px;
+    color:whitesmoke;
+}
+
+.right-side .content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.admin-dash .hamburger-menu{
+    cursor: pointer;
+}
+
+.admin-dash .hamburger-menu:hover{
+    transform: scale(0.9);
+}
+
+.admin-dash .btn {
+    padding: 10px 15px;
+    background-color: #2f2f41;
+    color: whitesmoke;
+    border: none;
+    border-radius: 50px ;
+    background-color: #0d0c22;
+}
+
+@media screen and (min-width: 778px){
+    .admin-dash {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    .admin-dash  .left-side{
+        flex-basis: 1;
+    }
+
+    .admin-dash .left-side .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 0;
+        justify-content: flex-start;
+    }
+
+    .admin-dash .left-side .content nav {
+        display: flex;
+        align-items: space-around;
+        justify-content: flex-end;
+        flex-direction: column;
+    }
+    .admin-dash .left-side .content nav a {
+        margin-bottom: 30px;
+    }
+    
+    .admin-dash .right-side {
+        margin-top: 0;
+        width: 1000px;
+        flex-basis: 2;
+    }
+
+        .right-side .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1rem;
+        }
+}

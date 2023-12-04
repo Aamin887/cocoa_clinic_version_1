@@ -1,0 +1,36 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,100&display=swap');
+*, 
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+body {
+    background-image: url('./assets/bg-img.jpg');
+    background-position: center;
+    background-size: cover;
+    font-family: 'Roboto', sans-serif;
+    background-repeat: no-repeat;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+a,
+label {
+    color: whitesmoke;
+}
+
+img {
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+}

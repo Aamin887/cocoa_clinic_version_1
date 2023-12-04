@@ -1,0 +1,104 @@
+.login-page {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.login-page::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(23, 25, 25, 0.538);
+    z-index: -1;
+}
+
+.login-page .header {
+    width: 100%;
+    text-align: center;
+
+}
+
+.login-page .header h1 {
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    font-size: 2.3rem;
+    letter-spacing: -1px;
+}
+
+.login-page .header h3{
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    word-spacing: 1px;
+}
+
+.login-page .logo {
+    width: 80px;
+    height: 80px;
+    margin-inline: auto;
+    border: 2px solid black;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    filter: drop-shadow(0px 1px 3px #c6c6c6);
+}  
+
+.login-page .logo img {
+    height: 100%;
+    border-radius: 50%;
+}
+
+.login-form {
+    width: 100%;
+}
+
+.login-form .form-control {
+    margin-bottom: 30px;
+}
+
+.login-form .form-control label{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+}
+
+.login-form .form-control label span {
+    font-size: 18px;
+    text-transform: capitalize;
+    margin-bottom: 15px;
+}
+
+.login-form .form-control input {
+    width: 100%;
+    padding: 10px 15px 10px 10px;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+
+.login-page .btns-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-page .btn {
+    padding: 10px 0;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    background-color: #35A3B3;
+    color: whitesmoke;
+    text-transform: capitalize;
+    text-align: center;
+}
