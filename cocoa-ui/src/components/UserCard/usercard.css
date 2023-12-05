@@ -58,6 +58,19 @@
     color: var(--special-color);
 }
 
+.user-card .data-field {
+    padding: 0.5rem;
+}
+
+.user-card .data-field h3 {
+    color: #ea4c89;
+    margin-bottom: 5px;
+}
+
+.user-card .data-field p {
+    color: #dadae8;
+}
+
 
 .header .basic-info p .firstName, .header .basic-info p .middleName {
     font-size: 1rem;
@@ -71,4 +84,17 @@
 .user-card .content .body {
     display: flex;
     justify-content: space-between;
+}
+
+.user-card .content .footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.user-card .content .footer .lead {
+    font-size: 13px;
+    margin-top: 10px;
+    color: rgb(148, 135, 135);
 }

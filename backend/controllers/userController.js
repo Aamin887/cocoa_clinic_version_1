@@ -110,6 +110,25 @@ const getInfo = asyncHandler(async function(req, res){
     res.json(userInfo);
 })
 
+// @Des     Get users
+// @Route   GET /api/user/users
+// @Access  Private
+const getAllUsers = asyncHandler(async function(req, res){
+    const userInfo = await User.find({})
+    res.json(userInfo);
+})
+
+
+
+
+
+
+
+
+
+
+
+
 
 // @Desc     Update user info by user
 // @Route   GET /api/user/update
@@ -127,7 +146,7 @@ const updateInfo = asyncHandler(async function(req, res){
 })
 
 
-// @Desc     Update user info by user
+// @Desc     Change user password
 // @Route   GET /api/user/update
 // @Access  Private
 const changePassword = asyncHandler(async function(req, res){
@@ -145,5 +164,6 @@ module.exports = {
     getInfo,
     registerUser,
     updateInfo,
-    changePassword
+    changePassword,
+    getAllUsers
 }

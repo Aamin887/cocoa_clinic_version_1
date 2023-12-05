@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import authService from "./authService";
 
-
+// create user
 export const register = createAsyncThunk('auth/register', async(formData, thunkAPI) => {
     try {
         return await authService.register(formData)
@@ -16,6 +16,7 @@ export const register = createAsyncThunk('auth/register', async(formData, thunkA
     }
 })
 
+// user login
 export const login = createAsyncThunk('auth/login', async(formData, thunkAPI) => {
     try {
         return await authService.login(formData)
@@ -30,6 +31,7 @@ export const login = createAsyncThunk('auth/login', async(formData, thunkAPI) =>
     }
 })
 
+// user info
 export const getUser = createAsyncThunk('auth/user', async(formData, thunkAPI) => {
     try {
         const token = thunkAPI.getState().auth.user.token
@@ -45,6 +47,23 @@ export const getUser = createAsyncThunk('auth/user', async(formData, thunkAPI) =
     }
 })
 
+//all user info
+export const getAllUser = createAsyncThunk('auth/allUser', async(formData, thunkAPI) => {
+    try {
+        const token = thunkAPI.getState().auth.admin.token
+        return await authService.allUsers(token)
+    } catch (error) {
+         const message =
+            (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+            error.message ||
+            error.toString()
+      return thunkAPI.rejectWithValue(message)
+    }
+})
+
+// admin login
 export const adminLogin = createAsyncThunk('auth/admin', async(formData, thunkAPI) => {
     try {
         return await authService.adminLogin(formData)
@@ -60,7 +79,7 @@ export const adminLogin = createAsyncThunk('auth/admin', async(formData, thunkAP
 
 })
 
-
+// user logout
 export const logout = createAsyncThunk('auth/logout', (_, thunkAPI) => {
     try {
         return authService.logout();
@@ -76,6 +95,7 @@ export const logout = createAsyncThunk('auth/logout', (_, thunkAPI) => {
     }
 })
 
+// admin logout
 export const adminLogout = createAsyncThunk('auth/adminLogout', (_, thunkAPI) => {
     try {
         return authService.adminLogout();
@@ -97,7 +117,7 @@ const admin = JSON.parse(localStorage.getItem('admin'))
 const initialState = {
     user: user ? user :null,
     admin: admin ? admin :null,
-    data: '',
+    data: [],
     isLoading: false,
     isSuccess: false,
     isError: false,
@@ -165,6 +185,19 @@ const authReducer = createSlice({
             state.isSuccess = true
         })
         .addCase(getUser.rejected, (state, action) => {
+            state.isError = true
+            state.isLoading = false
+            state.message = action.payload
+        })
+        .addCase( getAllUser.pending, (state) =>{
+            state.isLoading = true
+        })
+        .addCase( getAllUser.fulfilled, (state, action) => {
+            state.isLoading = false
+            state.data = action.payload
+            state.isSuccess = true
+        })
+        .addCase( getAllUser.rejected, (state, action) => {
             state.isError = true
             state.isLoading = false
             state.message = action.payload

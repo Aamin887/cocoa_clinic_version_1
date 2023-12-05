@@ -1,9 +1,13 @@
 import './usercard.css'
 
 function UserCard({props}) {
-    const {title, firstName, middleName,lastName, staffId, password, userName, department, employmentStatus, status } = props
+    const {title, firstName, middleName,lastName, staffId, password, userName, department, employmentStatus, status,  createdAt, updatedAt} = props
 
     console.log(status)
+
+   
+
+
 
   return (
     <article className='user-card bg-dark box-shadow'>  
@@ -78,6 +82,26 @@ function UserCard({props}) {
                 }
 
                 </div>
+            </div>
+            <div className="footer">
+                <div className="info">
+                    <h4>
+                        Created on:
+                    </h4>
+                    <p className='lead'>
+                        {new Date(createdAt).toLocaleString('en-UK')}
+                    </p>
+                </div>
+
+                <div className="info">
+                    <h4>
+                        Updated on:
+                    </h4>
+                    <p className='lead'>
+                        {new Date(updatedAt).toLocaleString('en-UK')}
+                    </p>
+                </div>
+                
             </div>
         </div>
     </article >

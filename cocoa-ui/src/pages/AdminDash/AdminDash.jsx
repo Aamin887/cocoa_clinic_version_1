@@ -6,7 +6,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import LOGO from '../../assets/logo.png'
 import Card from '../../components/Card/Card'
 import './admindash.css'
-import {adminLogout, reset} from '../../features/auth/authReducer'
+import {adminLogout, reset, getAllUser} from '../../features/auth/authReducer'
 import { toast } from 'react-toastify';
 
 
@@ -15,7 +15,7 @@ function AdminDash() {
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    const {admin, isError, isLoading, isSuccess, message} = useSelector(state => state.auth)
+    const {admin, data ,isError, isLoading, isSuccess, message} = useSelector(state => state.auth)
 
     useEffect(() =>{
       if(isError){
@@ -26,11 +26,13 @@ function AdminDash() {
             navigate('/admin/login')
         }
 
-        dispatch(reset())
+        dispatch(getAllUser())
+
+        // dispatch(reset())
 
     }, [admin, dispatch, navigate, isError, isSuccess, message])
 
-    const data = {
+    const datas = {
       title:'Dr',
       firstName:'Amin',
       middleName:'Forkah',
@@ -83,9 +85,13 @@ function AdminDash() {
 
       <div className="page right-side bg-dark">
         <div className="content">
-          <Card props={data} />
-          <Card props={data} />
-          <Card props={data} />
+          {
+            data.map((user, idx) => {
+              return (<>
+                <Card props={user} />
+              </>)
+            })
+          }
         </div>
       </div>
 

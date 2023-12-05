@@ -26,7 +26,7 @@ const loginAdmin = asyncHandler(async function(req, res){
         })
     }else{
         res.status(400);
-        throw new Error('incorrect credentials, ');
+        throw new Error('incorrect credentials');
     }
 });
 
