@@ -36,7 +36,7 @@ const userSchema = mongoose.Schema({
         unique: true
     },
     status: {
-        type: String,
+        type: Boolean,
         default: false
     },
     updates: {

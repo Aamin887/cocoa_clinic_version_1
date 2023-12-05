@@ -23,7 +23,7 @@ function AdminDash() {
       }
 
         if(!admin){
-            navigate('/admin')
+            navigate('/admin/login')
         }
 
         dispatch(reset())
@@ -72,7 +72,11 @@ function AdminDash() {
                 <Link className='box-shadow'>Dashboard</Link>
                 <Link>Pending User</Link>
                 <Link>Completed User</Link>
-                <button className='btn' onClick={() => dispatch(adminLogout())}>Logout</button>
+                <button className='btn' onClick={() => {
+                  dispatch(adminLogout())
+                  navigate('/admin/login')
+                }
+                  }>Logout</button>
             </nav>
         </div>
       </div>

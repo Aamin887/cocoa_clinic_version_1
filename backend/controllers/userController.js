@@ -1,5 +1,6 @@
 const bcypty = require('bcryptjs');
 const User = require('../model/userModel')
+const generateUsername = require('../utils/userNameGen')
 const asyncHandler = require('express-async-handler');
 const hashPassword = require('../utils/encrptPassword')
 const tokenGenerator = require('../utils/tokenGen')
@@ -51,7 +52,9 @@ const registerUser = asyncHandler(async function(req, res){
         throw new Error('Must fill all form fields');
     }
 
-    const userName = 'amin12994mmm'
+    const userName = await generateUsername(firstName, lastName)
+
+    console.log(userName)
 
     const existedUser = await User.findOne({userName})
     const existedUserUser = await User.findOne({staffId})
@@ -135,8 +138,6 @@ const changePassword = asyncHandler(async function(req, res){
 
     res.status(200).json(userInfo);
 })
-
-
 
 
 module.exports = {

@@ -56,17 +56,13 @@ function Register() {
         }
 
         if(user || isSuccess){
-            navigate('/dashboard')
+            navigate('/user/dashboard')
         }
 
-        dispatch(reset())
     },[dispatch, isSuccess, user, isError, navigate, message])
 
     const handleChange = function(e){
         setFormData({...formData, [e.target.name]: e.target.value})
-
-        console.log(formData)
-    
     }
 
     const handleSubmit = function(e){
@@ -77,18 +73,13 @@ function Register() {
         !password1||
         !password2){
             toast.error('fill in all fields')
-            // return
         }else {
             if(password1 !== password2){
                 toast.warning('passwords do not match')
             }else{
-    
                 dispatch(register(formData))
             }
-
         }
-
-        
     }
 
     const {
@@ -102,13 +93,9 @@ function Register() {
         password1,
         password2,} = formData
 
-        if(isLoading){
-            return 'loading'
-        }
-
-        if(isLoading){
-            return <Spinner />
-        }
+    if(isLoading){
+        return <Spinner />
+    }
   return (
     <div className="register-page">
         <div className="content">
@@ -234,7 +221,7 @@ function Register() {
 
                 {/*staff id*/}
                 {
-                    (employmentStatus === 'nationalStaffPersonal' || employmentStatus === 'permanent') &&  (
+                    (employmentStatus === 'nationalService' || employmentStatus === 'permanent') &&  (
                         <div className="form-control">
                         <label className="form-label">
                             <span className="label-text">

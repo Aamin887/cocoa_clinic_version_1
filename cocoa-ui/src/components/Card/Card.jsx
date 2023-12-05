@@ -55,6 +55,7 @@ function Card({props}) {
 
             ): ('')
         }
+        
         {/* password */}
         <div className="data-field">
             <h3>Password</h3>

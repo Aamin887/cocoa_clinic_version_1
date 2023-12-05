@@ -9,6 +9,12 @@
     transition: all 0.3s ease;
 }
 
+:root {
+    --overlay-color: rgba(4, 6, 27, 0.867);
+    --btn-color: #35A3B3;
+    --special-color: #e2d2a7;
+}
+
 body {
     background-image: url('./assets/bg-img.jpg');
     background-position: center;

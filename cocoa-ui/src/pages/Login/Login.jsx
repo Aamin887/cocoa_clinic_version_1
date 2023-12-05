@@ -16,7 +16,7 @@ function Login() {
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const {user, isLoading, isError, isSuccess,message} = useSelector(state => state.auth)
+    const {user, isLoading, isError, isSuccess, message} = useSelector(state => state.auth)
 
     useEffect(() => {
         if(isError){
@@ -24,7 +24,7 @@ function Login() {
         }
 
         if(user || isSuccess){
-            navigate('/dashboard')
+            navigate('/user/dashboard')
         }
 
         dispatch(reset())
@@ -93,8 +93,8 @@ function Login() {
 
                 <div className="btns-container">
                     <button className='btn' type='submit'>Check</button>
-                    <Link className='btn' to={'/reset'}>Forgot password</Link>
-                    <Link className='btn' to={'/register'}>Register</Link>
+                    <Link className='btn' to={'/reset/password'}>Forgot password</Link>
+                    <Link className='btn' to={'/user/register'}>Register</Link>
                 </div>
             </form>
         </div>

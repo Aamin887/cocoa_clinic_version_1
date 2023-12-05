@@ -1,17 +1,19 @@
-function generateUsername(firstName, lastName) {
-  // Check if the username already exists in the database (simulated check)
-  const formattedFirstName = firstName.toLowerCase();
-  const formattedLastName = lastName.toLowerCase();
+const User = require('../model/userModel');
 
-  let username = '';
-  
-  if (usernamesDatabase.includes(formattedFirstName[0] + formattedLastName) || usernamesDatabase.includes(formattedFirstName.slice(0, 2) + formattedLastName)) {
-    username = formattedFirstName.slice(0, 2) + "." + formattedLastName;
-  } else {
-    username = formattedFirstName[0] + "." + formattedLastName;
+async function generateUsername(firstName, lastName) {
+
+  const existUserFirstName = await User.findOne({firstName})
+  const existUserLastName = await User.findOne({lastName})
+
+  let userName = '';
+
+  if(existUserFirstName && existUserLastName){
+    userName = firstName.slice(0, 2) + "." + lastName
+  }else{
+    userName = firstName[0] + "." + lastName
   }
-
-  return username.toUpperCase()
+  
+  return userName.toUpperCase()
 }
 
 

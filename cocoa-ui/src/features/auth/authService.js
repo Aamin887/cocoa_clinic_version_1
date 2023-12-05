@@ -35,22 +35,39 @@ const adminLogin = async function(formData){
     return res.data
 }
 
-
-
 const logout = function(){
     localStorage.removeItem('user')
 }
 
 const adminLogout = function(){
+
     localStorage.removeItem('admin')
+    
 }
+
+const getUser = async function(token){
+
+    const config = {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    }
+
+    const res = await axios.get(URL_API + '/info', config)
+
+    return res.data
+}
+
+
+
 
 const authService = {
     register,
     login,
     adminLogin,
     adminLogout,
-    logout
+    logout,
+    getUser
 }
 
 export default authService

@@ -25,10 +25,10 @@ function AdminLogin() {
 
         if(admin || isSuccess){
             console.log(admin)
-            navigate('/dashboard')
+            navigate('/admin/dashboard')
         }
 
-            dispatch(reset())
+        dispatch(reset())
 
     }, [admin, message, isError, isSuccess, navigate, dispatch])
 

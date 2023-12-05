@@ -1,0 +1,21 @@
+nav button {
+    background-color: var(--overlay-color);
+    padding: 10px 15px;
+    color: whitesmoke;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+
+}
+nav button:hover {
+    background-color: var(--overlay-color);
+    padding: 10px 15px;
+    color: whitesmoke;
+    border: none;
+    border-radius: 10px;
+    transform: scale(0.9);
+}
+
+nav button:active {
+    transform: scale(1.1);
+}

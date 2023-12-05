@@ -1,6 +1,6 @@
 import './App.css';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
-import { Login, Register, Dash, AdminLogin, AdminDash} from './pages/index';
+import { Login, Register, Dash, AdminLogin, AdminDash, Nomatch} from './pages/index';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -9,11 +9,12 @@ function App() {
       <Router>
         <div className="App">
             <Routes>
-              <Route path='/register' element={<Register/>}/>
-              <Route path='/users' element={<AdminDash />}/>
-              <Route path='/admin' element={<AdminLogin />}/>
-              <Route path='/dashboard' element={<Dash/>}/>
               <Route path='/' element={<Login/>}/>
+              <Route path='/admin/login' element={<AdminLogin />}/>
+              <Route path='/user/register' element={<Register/>}/>
+              <Route path='/admin/dashboard' element={<AdminDash />}/>
+              <Route path='/user/dashboard' element={<Dash/>}/>
+              <Route path='*' element={<Nomatch/>}/>
             </Routes>
         </div>
         <ToastContainer />
