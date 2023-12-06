@@ -39,7 +39,8 @@
     }
 }
 
-button.no-match-btn {
+a.no-match-btn {
+    display: inline-block;
     border: 1px solid white;
     background: transparent;
     outline: none;

@@ -2,7 +2,6 @@ import { useEffect} from 'react'
 import {useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import Spinner from '../../components/Spinner/Spinner';
-import Card from '../../components/Card/Card'
 import UserCard from '../../components/UserCard/UserCard';
 import { toast } from 'react-toastify';
 import Nav from '../../components/Nav/Nav';

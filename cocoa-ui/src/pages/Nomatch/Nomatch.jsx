@@ -1,5 +1,6 @@
 import React from 'react'
 import './nomatch.css'
+import { Link } from 'react-router-dom'
 function Nomatch() {
   return (
 
@@ -11,7 +12,7 @@ function Nomatch() {
             <span className="fade-in" id="digit3">4</span>
             </h1>
             <h3 class="fadeIn">PAGE NOT FOUND</h3>
-            <button type="button" name="button" className='no-match-btn'>Return To Home</button>
+            <Link to='/' type="button" name="button" className='no-match-btn'>Return To Home</Link>
         </div>
     </div>
   )

@@ -2,13 +2,15 @@ import React, { useState } from 'react'
 import {updateUser} from '../../features/auth/authReducer'
 import {useDispatch} from 'react-redux'
 import './card.css'
+import { toast } from 'react-toastify'
+
 
 function Card({props}) {
     const [edit, setEdit]= useState(false)
     
     const dispatch = useDispatch()
 
-    const {title, firstName, middleName,lastName, staffId, password, userName, department, employmentStatus, _id} = props
+    const {title, firstName, middleName,lastName, staffId, password, userName, department, employmentStatus, status, _id} = props
 
     console.log(_id)
     
@@ -30,6 +32,8 @@ function Card({props}) {
 
     const handleEdit = function(){
         setEdit(true)
+        setUserData({...userData, id: _id})
+        toast.info('Ready to edit now.')
     }
 
     const handleComplete = function(){
@@ -37,6 +41,7 @@ function Card({props}) {
     }
 
     const handleSave = function(){
+        toast.info('changes successful')
         dispatch(updateUser(userData))
         console.log(userData)
         setEdit(false)
@@ -47,6 +52,7 @@ function Card({props}) {
 
     if(edit){
         content = (<>
+            
             <div className="data-field">
                 <h3>Title</h3>
                 <input type='text' name='title' value={userData.title} onChange={handleChange}/>
@@ -107,6 +113,17 @@ function Card({props}) {
         </>)
     }else{
         content = (<>
+            <div className="data-field">
+                <h3>Account Status</h3>
+                {
+                    status === true ? (<>
+                        <p className='success'>Active</p>
+                    </>) : (<>
+                        <p className='pending'>Pending </p>
+                    </>)
+                }
+            </div>
+
             <div className="data-field">
                 <h3>Title</h3>
                 <p>{title}</p>

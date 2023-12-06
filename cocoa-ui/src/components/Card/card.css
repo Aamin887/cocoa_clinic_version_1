@@ -35,3 +35,14 @@
 .option-controls .btn:hover{
     background-color: #2f2f41;
 }
+
+.data-field .success {
+    color: green;
+
+}
+
+.data-field .pending {
+    color: red;
+    font-size: 1.2rem;
+
+}

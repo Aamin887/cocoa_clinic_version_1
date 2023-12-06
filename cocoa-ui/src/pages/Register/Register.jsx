@@ -3,7 +3,7 @@ import {Link, useNavigate} from 'react-router-dom'
 import LOGO from '../../assets/logo.png'
 import './register.css'
 import { toast } from 'react-toastify'
-import {register, reset} from '../../features/auth/authReducer'
+import {register} from '../../features/auth/authReducer'
 import {useDispatch, useSelector} from 'react-redux'
 import Spinner from '../../components/Spinner/Spinner'
 
