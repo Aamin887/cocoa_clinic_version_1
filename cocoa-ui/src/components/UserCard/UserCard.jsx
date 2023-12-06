@@ -3,11 +3,6 @@ import './usercard.css'
 function UserCard({props}) {
     const {title, firstName, middleName,lastName, staffId, password, userName, department, employmentStatus, status,  createdAt, updatedAt} = props
 
-    console.log(status)
-
-   
-
-
 
   return (
     <article className='user-card bg-dark box-shadow'>  
@@ -38,7 +33,7 @@ function UserCard({props}) {
                         <span className='firstName'>{firstName}</span>
                             {
                             middleName ? (
-                                <span className='middle'>{middleName}</span>
+                                <span className='middleName'>{middleName}</span>
                             ) : ('')
                             }
                         <span className='lastName'>{lastName}</span>

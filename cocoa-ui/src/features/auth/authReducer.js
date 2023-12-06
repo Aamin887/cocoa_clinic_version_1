@@ -53,13 +53,29 @@ export const getAllUser = createAsyncThunk('auth/allUser', async(formData, thunk
         const token = thunkAPI.getState().auth.admin.token
         return await authService.allUsers(token)
     } catch (error) {
-         const message =
+        const message =
             (error.response &&
             error.response.data &&
             error.response.data.message) ||
             error.message ||
             error.toString()
-      return thunkAPI.rejectWithValue(message)
+        return thunkAPI.rejectWithValue(message)
+    }
+})
+
+//update user
+export const updateUser = createAsyncThunk('auth/userupdate', async(formData, thunkAPI) => {
+    try {
+        const token = thunkAPI.getState().auth.admin.token
+        return await authService.updateUser(formData, token)
+    } catch (error) {
+        const message =
+            (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+            error.message ||
+            error.toString()
+        return thunkAPI.rejectWithValue(message)
     }
 })
 
@@ -198,6 +214,21 @@ const authReducer = createSlice({
             state.isSuccess = true
         })
         .addCase( getAllUser.rejected, (state, action) => {
+            state.isError = true
+            state.isLoading = false
+            state.message = action.payload 
+        })
+        .addCase( updateUser.pending, (state) =>{
+            state.isLoading = true
+        })
+        .addCase( updateUser.fulfilled, (state, action) => {
+            state.isLoading = false
+
+            const users = state.data.filter((user) => user._id !== action.payload._id)
+            state.data = [...users, action.payload]
+            state.isSuccess = true
+        })
+        .addCase( updateUser.rejected, (state, action) => {
             state.isError = true
             state.isLoading = false
             state.message = action.payload

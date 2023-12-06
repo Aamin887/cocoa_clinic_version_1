@@ -99,7 +99,6 @@ const updateStatus = asyncHandler(async function(req, res){
 
     const updateUser = await User.findByIdAndUpdate({_id: id}, {text}, {new: true});
 
-
     res.status(200).json({
         msg: updateUser
     })
@@ -124,12 +123,23 @@ const noticeUser = asyncHandler(async function(req, res){
     const msg = user.updates
     msg.push(text)
 
-
     const updateUser = await User.findByIdAndUpdate({_id: id}, {updates: msg}, {new: true});
 
     res.json({
         msg: msg
     })
+})
+
+
+const updateInfo = asyncHandler(async function(req, res){
+
+    const formData = req.body
+
+    const userInfo = await User.findByIdAndUpdate(formData.id, 
+        formData
+    , {new: true})
+
+    res.status(200).json(userInfo);
 })
 
 
@@ -139,5 +149,6 @@ module.exports = {
     loginAdmin,
     registerAdmin,
     noticeUser,
-    updateStatus
+    updateStatus,
+    updateInfo
 };

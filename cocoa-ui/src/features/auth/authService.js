@@ -61,17 +61,29 @@ const allUsers = async function(token){
     return res.data
 }
 
+// update user
+const updateUser = async function(formData, token){
+    const config = {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    }
+    const res = await axios.put(URL_API + '/admin/updateuser', formData, config)
+    return res.data
+}
+
 
 
 
 const authService = {
     register,
-    login,
+    login, 
     adminLogin,
     adminLogout,
     logout,
     getUser,
-    allUsers
+    allUsers,
+    updateUser
 }
 
 export default authService

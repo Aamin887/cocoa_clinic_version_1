@@ -16,8 +16,8 @@ function App() {
               <Route path='/user/dashboard' element={<Dash/>}/>
               <Route path='*' element={<Nomatch/>}/>
             </Routes>
+          <ToastContainer />
         </div>
-        <ToastContainer />
       </Router>
   );
 }

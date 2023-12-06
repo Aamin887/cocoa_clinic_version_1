@@ -12,6 +12,8 @@ const checkUser = asyncHandler(async function(req, res){
 
     const {userName, password} = req.body;
 
+    const formattedUser = userName.toLowerCase()
+
     if(!userName && !password){
         res.status(400);
         throw new Error('Fill in all form fields');
@@ -134,11 +136,10 @@ const getAllUsers = asyncHandler(async function(req, res){
 // @Route   GET /api/user/update
 // @Access  Private
 const updateInfo = asyncHandler(async function(req, res){
-    const user = req.user;
 
     const formData = req.body
 
-    const userInfo = await User.findByIdAndUpdate(user._id, 
+    const userInfo = await User.findByIdAndUpdate(formData.id, 
         formData
     , {new: true})
 

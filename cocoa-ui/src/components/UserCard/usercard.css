@@ -92,6 +92,9 @@
     justify-content: space-between;
     gap: 20px;
 }
+.user-card .content .footer h4 {
+    color: #ea4c89;
+}
 
 .user-card .content .footer .lead {
     font-size: 13px;
