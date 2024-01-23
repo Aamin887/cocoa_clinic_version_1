@@ -1,0 +1,8 @@
+.container {
+    margin: 0 auto;
+    background-color: black;
+    display: grid;
+    height: 100vh;
+    place-content: center;
+    color: whitesmoke;
+}

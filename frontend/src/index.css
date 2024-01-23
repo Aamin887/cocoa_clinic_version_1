@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,100&display=swap');
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+
+:root {
+    --overlay-color: rgba(4, 6, 27, 0.867);
+    --btn-color: #35A3B3;
+    --special-color: #e2d2a7;
+    --blue: #2a2185;
+    --white: #fff;
+    --grey: #f5f5f5;
+    --black1: #222;
+    --black2: #999;
+    --brown: #8B4513;
+}
+
+body {
+    background-color: var(--black2);
+    font-family: 'Roboto', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+a,
+label {
+    color: whitesmoke;
+}
+
+li {
+    list-style: none;
+}
+
+img {
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+.active {
+    background-color: var(--white);
+    border-radius: 15px 0px 0px 10px;
+    color: var(--brown) !important;
+}
+
+.box-shadow {
+    box-shadow: 0 7px 25px rgba(175, 28, 28, 0.08);
+    border-radius: 10px;
+}
+
+/* indicators for the status an account request */
+.status.active {
+    padding: 2px 4px;
+    background: #8de02c;
+    color: var(--white);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.status.pending {
+    padding: 2px 4px;
+    background: #e9b10a;
+    color: var(--white);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.status.rejected {
+    padding: 2px 14px;
+    background: #f00;
+    color: var(--white);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.note-username {
+    margin-top: 1em;
+    background-color: var(--brown);
+    color: var(--blue);
+    padding: 1em;
+}

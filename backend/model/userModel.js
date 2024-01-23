@@ -8,7 +8,7 @@ const userSchema = mongoose.Schema({
     userName: {
         type: String,
         required: [true, 'Please add a username'],
-        unique:true
+        unique: true
     },
     firstName: {
         type: String,
@@ -25,7 +25,6 @@ const userSchema = mongoose.Schema({
     department: {
         type: String,
         required: [true, 'Please enter a department']
-        
     },
     employmentStatus: {
         type: String,
@@ -33,11 +32,11 @@ const userSchema = mongoose.Schema({
     },
     staffId: {
         type: String,
-        unique: true
+        default: ''
     },
     status: {
-        type: Boolean,
-        default: false
+        type: String,
+        default: 'pending'
     },
     updates: {
         type: [String]

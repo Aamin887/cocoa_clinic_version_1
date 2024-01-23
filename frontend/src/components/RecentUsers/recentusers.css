@@ -1,0 +1,50 @@
+.recentUsers {
+    position: relative;
+    display: grid;
+    min-height: 500;
+    padding: 20px;
+    background: var(--white);
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+}
+
+.recentUsers .imgBx {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+.recentUsers .imgBx img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.recentUsers table tr td {
+    padding: 12px 10px;
+}
+
+.recentUsers table tr td h4 {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.2rem;
+}
+
+.recentUsers table tr td h4 span {
+    font-size: 14px;
+    color: var(--black2);
+}
+
+.recentUsers table tr:hover {
+    background: var(--brown);
+    color: var(--white);
+}
+
+.recentUsers table tr:hover td h4 span {
+    color: var(--white);
+}

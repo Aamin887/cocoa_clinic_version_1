@@ -1,0 +1,35 @@
+.user-card {
+    background-color: var(--grey);
+    padding: 2em 3em;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+}
+
+.user-card table,
+.user-card td {
+    border: 2px solid var(--brown);
+    border-collapse: collapse;
+}
+
+.user-card td {
+    padding: 1em;
+    text-align: left;
+    font-size: 1rem;
+    text-transform: capitalize;
+}
+
+.user-card td.title {
+    font-weight: bolder;
+    font-size: 1.1rem;
+}
+
+.user-card table thead td {
+    border: none;
+}
+
+.user-card table thead td h3 {
+    color: black;
+    text-align: center;
+
+}
