@@ -210,7 +210,7 @@ const authReducer = createSlice({
             })
             .addCase(getAllUser.fulfilled, (state, action) => {
                 state.isLoading = false
-                state.data = action.payload
+                state.data.push(action.payload)
                 state.isSuccess = true
             })
             .addCase(getAllUser.rejected, (state, action) => {

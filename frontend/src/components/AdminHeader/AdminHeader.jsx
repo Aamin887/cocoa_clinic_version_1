@@ -6,14 +6,14 @@ import './adminheader.css'
 
 function AdminHeader({ setSearchQuery, toggleNav }) {
     return (
-        < div class="topbar" >
-            <div class="toggle">
+        < div className="topbar" >
+            <div className="toggle">
                 <span name="menu-outline" onClick={toggleNav}>
                     <IoMenu />
                 </span>
             </div>
 
-            <div class="search">
+            <div className="search">
                 <label>
                     <input
                         type="text"
@@ -27,7 +27,7 @@ function AdminHeader({ setSearchQuery, toggleNav }) {
                 </label>
             </div>
 
-            <div class="user">
+            <div className="user">
                 <img src={LOGO} alt="user profile" />
             </div>
         </div >

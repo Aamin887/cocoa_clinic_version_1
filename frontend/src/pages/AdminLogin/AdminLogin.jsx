@@ -24,7 +24,6 @@ function AdminLogin() {
         }
 
         if (admin || isSuccess) {
-            console.log(admin)
             navigate('/admin/dashboard')
         }
 

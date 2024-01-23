@@ -3,13 +3,13 @@ import './indicator.css'
 function Indicator({ Icon, number, name }) {
     return (
         <Link to={'/api'}>
-            <div class="card">
+            <div className="card">
                 <div>
-                    <div class="numbers">{number}</div>
-                    <div class="cardName">{name}</div>
+                    <div className="numbers">{number}</div>
+                    <div className="cardName">{name}</div>
                 </div>
 
-                <div class="iconBx">
+                <div className="iconBx">
                     <Icon />
                 </div>
             </div>

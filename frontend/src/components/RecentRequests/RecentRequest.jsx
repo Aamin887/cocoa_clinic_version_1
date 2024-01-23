@@ -1,15 +1,17 @@
 import React from 'react'
 import './recentrequests.css'
 import Table from '../Table/Table'
+import { Link } from 'react-router-dom'
 
-function RecentRequest() {
+function RecentRequest({ data }) {
+    console.log(data)
     return (
-        <div class="recentRequests">
-            <div class="cardHeader">
+        <div className="recentRequests">
+            <div className="cardHeader">
                 <h2>Account Requests</h2>
-                <a href="#" class="btn">View All</a>
+                <Link href="#" className="btn">View All</Link>
             </div>
-            <Table />
+            <Table data={data} />
         </div>
     )
 }

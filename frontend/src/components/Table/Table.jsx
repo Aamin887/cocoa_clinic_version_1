@@ -2,7 +2,9 @@ import React from 'react'
 import './table.css'
 import DataRow from '../DataRow/DataRow'
 
-function Table() {
+function Table({ data }) {
+    const list = data?.map((user, idx) => <DataRow key={idx} user={user} />)
+    console.log(list)
     return (
         <table>
             {/* header with column title */}
@@ -16,8 +18,8 @@ function Table() {
             </thead>
             {/* body with rows  */}
             <tbody>
-                <DataRow />
-                <DataRow />
+                {list}
+
                 {/* <DataRow />
                 <DataRow />
                 <DataRow />

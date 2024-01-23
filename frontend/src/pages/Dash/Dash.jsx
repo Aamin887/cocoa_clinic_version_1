@@ -24,6 +24,7 @@ function Dash() {
 
     if (!user) {
       navigate('/')
+      return
     }
 
     if (user) {
@@ -37,14 +38,16 @@ function Dash() {
       console.log('here')
     }, (74800))
 
-  }, [user, userInfo, dispatch, navigate, isError, isSuccess, message])
-
-  useEffect(() => {
     if (data?.status !== 'active') {
       toast.info('Note your username for your next login')
+      return
     }
 
-  }, [data])
+  }, [user, userInfo, dispatch, navigate, isError, isSuccess, message])
+
+
+
+
 
   if (isLoading) {
     return (

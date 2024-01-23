@@ -3,7 +3,6 @@ import './usercard.css'
 function UserCard({ props }) {
     const { title, firstName, middleName, lastName, staffId, password, userName, department, employmentStatus, status, createdAt, updatedAt } = props
 
-
     return (
         <article className='user-card box-shadow'>
             <table className='user-info'>
