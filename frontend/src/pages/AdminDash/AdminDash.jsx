@@ -31,7 +31,6 @@ function AdminDash() {
 
   const data = useSelector(state => state.auth);
 
-  console.log(users)
 
   useEffect(() => {
     if (isError) {
@@ -65,7 +64,6 @@ function AdminDash() {
   const toggleNav = function () {
     nav.current.classList.toggle('active');
     main.current.classList.toggle('active');
-    console.log(searchQuery);
   }
 
   if (isLoading) {
@@ -87,7 +85,7 @@ function AdminDash() {
         ]} />
         <div className="requests">
           <RecentRequest data={users} />
-          <RecentUsers />
+          <RecentUsers data={users} />
         </div>
       </div >
     </div >

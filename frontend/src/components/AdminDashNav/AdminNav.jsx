@@ -14,12 +14,10 @@ function AdminNav({ logo, nav, logout }) {
 
     const addActiveLink = function (e) {
         e.target.classList.add('hovered')
-        console.log(e.target.className)
     }
 
     const removeActiveLink = function (e) {
         e.target.classList.remove('hovered')
-        console.log(e.target.className)
     }
 
     const handleLogout = function () {

@@ -1,6 +1,23 @@
 import React from 'react'
 import './recentusers.css'
-function RecentUsers() {
+
+
+const DataItem = function ({ user }) {
+    return (
+        <tr>
+            <td width="60px">
+                <div className="imgBx"><img src="/" alt="" /></div>
+            </td>
+            <td>
+                <h4>{user?.userName} <br /> <span>{user?.department}</span></h4>
+            </td>
+        </tr>
+    )
+}
+
+
+
+function RecentUsers({ data }) {
     return (
         < div className="recentUsers" >
             <div className="cardHeader">
@@ -8,7 +25,22 @@ function RecentUsers() {
             </div>
             <table>
                 <tbody>
-                    <tr>
+                    {
+                        data?.map((user, idx) => <DataItem key={idx} user={user} />)
+                    }
+                </tbody>
+            </table>
+        </div >
+    )
+}
+
+export default RecentUsers
+
+
+
+
+
+{/* <tr>
                         <td width="60px">
                             <div className="imgBx"><img src="imgs/60039275-young-male-cartoon-profile-vector-illustration-graphic-design.jpg" alt="" /></div>
                         </td>
@@ -71,11 +103,4 @@ function RecentUsers() {
                         <td>
                             <h4>K.NANA <br /> <span>ISU</span></h4>
                         </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div >
-    )
-}
-
-export default RecentUsers
+                    </tr> */}

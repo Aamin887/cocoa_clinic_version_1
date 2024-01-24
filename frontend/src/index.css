@@ -6,7 +6,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 }
 
 
@@ -20,6 +20,7 @@
     --black1: #222;
     --black2: #999;
     --brown: #8B4513;
+    --light-brown: #8b45139e;
 }
 
 body {

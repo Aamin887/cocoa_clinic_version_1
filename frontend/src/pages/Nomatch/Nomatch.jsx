@@ -16,7 +16,7 @@ function Nomatch() {
           <span className="fade-in" id="digit2">0</span>
           <span className="fade-in" id="digit3">4</span>
         </h1>
-        <h3 class="fadeIn">PAGE NOT FOUND</h3>
+        <h3 className="fadeIn">PAGE NOT FOUND</h3>
         <button onClick={() => navigate(-1)} type="button" name="button" className='no-match-btn'>Go to previous page</button>
       </div>
     </div>

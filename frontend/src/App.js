@@ -1,9 +1,8 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-import { Login, Register, Dash, AdminLogin, AdminDash, Nomatch, ChangePassword } from './pages/index';
+import { Login, Register, Dash, AdminLogin, AdminDash, Nomatch, ChangePassword, UserDisplay } from './pages/index';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
 
 function App() {
   return (
@@ -16,6 +15,7 @@ function App() {
           <Route path='/password' element={<ChangePassword />} />
           <Route path='/admin' element={<AdminLogin />} />
           <Route path='/admin/dashboard' element={<AdminDash />} />
+          <Route path='/admin/dashboard/userdisplay' element={<UserDisplay />} />
           <Route path='*' element={<Nomatch />} />
         </Routes>
         <ToastContainer />

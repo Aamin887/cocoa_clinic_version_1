@@ -3,8 +3,9 @@ import './table.css'
 import DataRow from '../DataRow/DataRow'
 
 function Table({ data }) {
-    const list = data?.map((user, idx) => <DataRow key={idx} user={user} />)
-    console.log(list)
+
+    const list = data?.map((user, idx) => <DataRow key={idx} user={user} />);
+
     return (
         <table>
             {/* header with column title */}
@@ -19,15 +20,6 @@ function Table({ data }) {
             {/* body with rows  */}
             <tbody>
                 {list}
-
-                {/* <DataRow />
-                <DataRow />
-                <DataRow />
-                <DataRow />
-                <DataRow />
-                <DataRow />
-                <DataRow />
-                <DataRow /> */}
             </tbody>
         </table>
     )

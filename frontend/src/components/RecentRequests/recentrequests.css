@@ -27,18 +27,3 @@
     color: var(--white);
     border-radius: 6px;
 }
-
-.requests table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-}
-
-.requests table thead {
-    background-color: var(--brown);
-}
-
-.requests table thead td {
-    font-weight: 600;
-    color: var(--white);
-}

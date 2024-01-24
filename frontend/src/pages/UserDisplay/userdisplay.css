@@ -1,0 +1,6 @@
+.users-display {
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+
+}
