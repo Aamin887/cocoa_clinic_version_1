@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import './usereditable.css';
 import { updateUser, getUser, getAllUser } from '../../features/auth/authReducer';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import Spinner from '../Spinner/Spinner';
 
 
@@ -39,7 +39,6 @@ const UserEditable = ({ id }) => {
     const handleUpdate = () => {
         setIsEditing(false);
         dispatch(updateUser({ id, formData: editedUserData }));
-        navigate('/admin')
 
     };
 
@@ -60,6 +59,7 @@ const UserEditable = ({ id }) => {
 
     return (
         <div className='user-editable'>
+            <Link to='/admin/dashboard' className='btn'>Dash</Link>
             {isEditing ? (
                 <article className='page user-details'>
                     <div className="card-container">
@@ -122,13 +122,18 @@ const UserEditable = ({ id }) => {
                         }
                         <div className="data-field">
                             <small>Status</small>
-                            <input
+                            <select name="status" id="" onChange={handleInputChange}>
+                                <option value="pending">Pending</option>
+                                <option value="active">Active</option>
+                                <option value="rejected">Rejected</option>
+                            </select>
+                            {/* <input
                                 className='input-control'
                                 type="text"
                                 name='status'
                                 value={editedUserData.status}
                                 onChange={handleInputChange}
-                            />
+                            /> */}
                         </div>
                         <div className="data-field">
                             <small>Employment Type</small>
@@ -232,7 +237,7 @@ const UserEditable = ({ id }) => {
                         {/* buttons  */}
                         <div className="buttons">
                             <button className="primary" onClick={handleEdit}>Update Details</button>
-                            <button className="primary ghost">Activate</button>
+                            {/* <button className="primary ghost">Activate</button> */}
                         </div>
                     </div>
                 </article>

@@ -1,6 +1,22 @@
 .users-display {
-    background-color: red;
+    background-color: var(--black2);
     display: flex;
     flex-direction: column;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
 
+}
+
+.users-display .user-display-header {
+    text-align: center;
+}
+
+.user-display-header h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5em;
+}
+
+.user-display-header p {
+    font-size: 1.2rem;
 }

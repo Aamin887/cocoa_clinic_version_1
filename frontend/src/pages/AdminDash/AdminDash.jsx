@@ -32,7 +32,8 @@ function AdminDash() {
   const data = useSelector(state => state.auth);
 
   useEffect(() => {
-    dispatch(getAllUser())
+    dispatch(getAllUser());
+    // refreshPage()
   }, [])
 
   useEffect(() => {
@@ -47,10 +48,9 @@ function AdminDash() {
 
     if (admin || isSuccess) {
       dispatch(getAllUser());
-      setUsers(data.data[0]);
     };
 
-
+    setUsers(data.data[0]);
 
     // to handle automatic logout
     // after user is logged in for 12 hours

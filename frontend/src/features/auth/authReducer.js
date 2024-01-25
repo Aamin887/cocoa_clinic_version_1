@@ -227,8 +227,8 @@ const authReducer = createSlice({
             .addCase(updateUser.fulfilled, (state, action) => {
                 state.isLoading = false
                 const users = state.data.filter((user) => user._id !== action.payload._id)
-                console.log(users)
-                state.data = [...users, action.payload]
+                // state.data = [...users, action.payload]
+                state.data.push('hello')
                 state.isSuccess = true
             })
             .addCase(updateUser.rejected, (state, action) => {

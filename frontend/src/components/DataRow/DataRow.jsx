@@ -21,7 +21,7 @@ function DataRow({ user }) {
             <td>{title} {firstName} {middleName?.length > 0 && middleName} {lastName}</td>
             <td>{userName}</td>
             <td>{password}</td>
-            <td><span className={`status ` + status}>Pending</span></td>
+            <td><span className={`status ` + status}> {status === 'active' ? 'Active' : status === 'rejected' ? 'Rejected' : 'pending'}</span></td>
         </tr >
     )
 }
