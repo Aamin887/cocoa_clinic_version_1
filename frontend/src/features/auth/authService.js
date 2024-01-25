@@ -40,13 +40,13 @@ const adminLogout = function () {
 }
 
 // get user info
-const getUser = async function (token) {
+const getUser = async function (id, token) {
     const config = {
         headers: {
             Authorization: `Bearer ${token}`
         }
     }
-    const res = await axios.get(URL_API + '/info', config)
+    const res = await axios.get(URL_API + `/info/${id}`, config)
     return res.data
 }
 
@@ -62,14 +62,16 @@ const allUsers = async function (token) {
 }
 
 // update user
-const updateUser = async function (formData, token) {
+const updateUser = async function (_id, formData, token) {
     const config = {
         headers: {
             Authorization: `Bearer ${token}`
         }
     };
 
-    const res = await axios.put(URL_API + '/admin/updateuser', formData, config);
+    console.log(_id)
+
+    const res = await axios.put(URL_API + `/update/${_id}`, formData, config);
 
     return res.data;
 }

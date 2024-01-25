@@ -1,22 +1,16 @@
 import './userdisplay.css';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import UserEditable from '../../components/UserEditable/UserEditable';
+import { useSelector, useDispatch } from 'react-redux';
+import { getUser, getAllUser } from '../../features/auth/authReducer';
+import Spinner from '../../components/Spinner/Spinner';
+
 
 function UserDisplay() {
+    // const [user, setUser] = useState(null)
     const location = useLocation();
     const userId = location.state.userId;
-
-    const initialUserData = {
-        name: 'John Doe',
-        email: 'john@example.com',
-    };
-
-    const [userData, setUserData] = useState(initialUserData);
-
-    const handleUpdateUser = (updatedUserData) => {
-        setUserData(updatedUserData);
-    };
 
     return (
         <div className='users-display'>
@@ -25,7 +19,7 @@ function UserDisplay() {
                 <p>Review and update</p>
             </div>
 
-            <UserEditable user={userData} onUpdate={handleUpdateUser} />
+            <UserEditable id={userId} />
         </div>
     )
 }

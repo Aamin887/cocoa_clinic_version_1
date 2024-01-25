@@ -5,8 +5,10 @@ const asyncHandler = require('express-async-handler');
 // @Route   GET /api/user/info
 // @Access  Private
 const getInfo = asyncHandler(async function (req, res) {
-    const user = req.user
-    const userInfo = await User.findById(user._id)
+    // const user = req.user;
+    const { id } = req.params;
+    console.log(id)
+    const userInfo = await User.findById(id);
     res.json(userInfo);
 })
 
@@ -23,13 +25,17 @@ const getAllUsers = asyncHandler(async function (req, res) {
 // @Access  Private
 const updateInfo = asyncHandler(async function (req, res) {
 
+    const { id } = req.params
+
+    // console.log(id)
+
     const formData = req.body
 
-    const userName = formData?.userName
-    console.log(formData)
-    const foundUser = await User.find({ userName })
-    const _id = await foundUser[0]._id
-    const userInfo = await User.findByIdAndUpdate(_id,
+    console.log(id)
+
+    // console.log(formData)
+
+    const userInfo = await User.findByIdAndUpdate({ _id: id },
         formData
         , { new: true })
 

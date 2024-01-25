@@ -31,32 +31,33 @@ function AdminDash() {
 
   const data = useSelector(state => state.auth);
 
+  useEffect(() => {
+    dispatch(getAllUser())
+  }, [])
 
   useEffect(() => {
     if (isError) {
       toast.error(message);
-    }
+    };
 
     if (!admin) {
-      navigate('/admin')
+      navigate('/admin');
       return
-    }
+    };
 
-    if (admin) {
-      dispatch(getAllUser())
-    }
-
-    if (admin && data?.data) {
+    if (admin || isSuccess) {
+      dispatch(getAllUser());
       setUsers(data.data[0]);
-    }
+    };
+
+
 
     // to handle automatic logout
     // after user is logged in for 12 hours
     // setTimeout(() => {
-    //   dispatch(adminLogout())
-    //   console.log('here')
+    //   dispatch(adminLogout());
+    //   console.log('here');
     // }, (74800))
-
 
   }, [admin, dispatch, navigate, isError, isSuccess, message]);
 

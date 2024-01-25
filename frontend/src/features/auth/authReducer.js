@@ -32,10 +32,10 @@ export const login = createAsyncThunk('auth/login', async (formData, thunkAPI) =
 })
 
 // user info
-export const getUser = createAsyncThunk('auth/user', async (_, thunkAPI) => {
+export const getUser = createAsyncThunk('auth/user', async (id, thunkAPI) => {
     try {
-        const token = thunkAPI.getState().auth.user.token
-        return await authService.getUser(token)
+        const token = thunkAPI.getState().auth.admin.token
+        return await authService.getUser(id, token)
     } catch (error) {
         const message =
             (error.response &&
@@ -45,7 +45,7 @@ export const getUser = createAsyncThunk('auth/user', async (_, thunkAPI) => {
             error.toString()
         return thunkAPI.rejectWithValue(message)
     }
-})
+});
 
 //all user info
 export const getAllUser = createAsyncThunk('auth/allUser', async (_, thunkAPI) => {
@@ -64,10 +64,12 @@ export const getAllUser = createAsyncThunk('auth/allUser', async (_, thunkAPI) =
 })
 
 //update user
-export const updateUser = createAsyncThunk('auth/userupdate', async (formData, thunkAPI) => {
+export const updateUser = createAsyncThunk('auth/update', async (data, thunkAPI) => {
     try {
+        const { id, formData } = data
+        console.log(id)
         const token = thunkAPI.getState().auth.admin.token
-        return await authService.updateUser(formData, token)
+        return await authService.updateUser(id, formData, token)
     } catch (error) {
         const message =
             (error.response &&
@@ -134,11 +136,12 @@ const initialState = {
     user: user ? user : null,
     admin: admin ? admin : null,
     data: [],
+    activeUser: [],
     isLoading: false,
     isSuccess: false,
     isError: false,
     message: ''
-}
+};
 
 const authReducer = createSlice({
     name: 'auth',
@@ -184,7 +187,7 @@ const authReducer = createSlice({
             })
             .addCase(register.fulfilled, (state, action) => {
                 state.isLoading = false
-                state.user = action.payload
+                state.user = action?.payload
                 state.isSuccess = true
             })
             .addCase(register.rejected, (state, action) => {
@@ -197,7 +200,7 @@ const authReducer = createSlice({
             })
             .addCase(getUser.fulfilled, (state, action) => {
                 state.isLoading = false
-                state.data = action.payload
+                state.activeUser = (action?.payload)
                 state.isSuccess = true
             })
             .addCase(getUser.rejected, (state, action) => {
@@ -223,8 +226,8 @@ const authReducer = createSlice({
             })
             .addCase(updateUser.fulfilled, (state, action) => {
                 state.isLoading = false
-
                 const users = state.data.filter((user) => user._id !== action.payload._id)
+                console.log(users)
                 state.data = [...users, action.payload]
                 state.isSuccess = true
             })
@@ -240,7 +243,7 @@ const authReducer = createSlice({
                 state.admin = null
             })
     }
-})
+});
 
 export const { reset } = authReducer.actions
 

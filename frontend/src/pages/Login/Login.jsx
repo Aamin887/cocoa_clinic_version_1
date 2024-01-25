@@ -41,7 +41,6 @@ function Login() {
 
         if (userName === '' || password === '') {
             toast.error('fill in all fields')
-
         } else {
             dispatch(login(formData))
         }
